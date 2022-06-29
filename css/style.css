@@ -1,3 +1,8 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
 body{
     background-color: #aec4a6;
 }
@@ -17,10 +22,18 @@ svg{
     color: #799E6C;
 }
 
+svg:hover{
+    color: white;
+}
+
 .link-kontak{
     text-decoration: none;
     color: #799E6C;
     font-weight: bold;
+}
+
+.link-kontak:hover{
+    color: white;
 }
 
 .total{
