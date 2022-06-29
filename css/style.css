@@ -1,0 +1,40 @@
+body{
+    background-color: #aec4a6;
+}
+
+nav{
+    background-color: #799E6C;
+}
+
+.jumbotron{
+    padding: 2rem 1rem;
+    background-color: grey;
+}
+
+svg{
+    height: 70px;
+    width: 70px;
+    color: #799E6C;
+}
+
+.link-kontak{
+    text-decoration: none;
+    color: #799E6C;
+    font-weight: bold;
+}
+
+.total{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-weight: bold;
+}
+
+footer{
+    background-color: #799E6C;
+    color: white;
+}
+
+.foot-bar{
+    list-style-type: none;
+}
