@@ -30,6 +30,11 @@ svg{
     font-weight: bold;
 }
 
+table{
+    border-collapse: separate;
+    border-spacing: 50px 0;
+}
+
 footer{
     background-color: #799E6C;
     color: white;
