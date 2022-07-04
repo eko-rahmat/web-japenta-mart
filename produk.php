@@ -49,7 +49,7 @@
                 <div class="row g-2">
                     <!-- Looping Content -->
                     <div class="col-sm-4 mb-3">
-                        <a href="detail.html" style="text-decoration: none;">
+                        <a href="detail.php" style="text-decoration: none;">
                             <div class="card">
                                 <img src="img/plant1.jpg" class="card-img-top" alt="plant1">
                                 <div class="card-body">

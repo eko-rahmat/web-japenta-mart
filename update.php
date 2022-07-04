@@ -1,3 +1,11 @@
+<?php 
+    require 'connect.php';
+    $id = $_GET['id'];
+
+    $result = mysqli_query($mysqli,"SELECT * FROM tanaman WHERE id='$id'");
+    $data_tanam = mysqli_fetch_array($result);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -22,15 +30,17 @@
                 <div class="row">
                     <div class="col">
                         <h3 class="text-center">Update Tanaman</h3>
-                        <form action="" method="post">
+                        <form action="update.php" method="post">
                             <label for="Nama">Nama Tanaman</label>
-                            <input type="text" name="nama" class="form-control"><br>
+                            <input type="text" name="nama" class="form-control" placeholder="<?=$data_tanam['nama_tanaman']; ?>"><br>
                             <label for="Deskripsi">Deskripsi</label>
-                            <textarea name="deskripsi" id="desc" class="form-control mb-3" rows="3"></textarea><br>
+                            <textarea name="deskripsi" id="desc" class="form-control mb-3" rows="3" placeholder="<?=$data_tanam['deskripsi']; ?>"></textarea><br>
                             <label for="harga">Harga</label>
-                            <input type="text" name="harga" class="form-control"><br>
+                            <input type="text" name="harga" class="form-control" placeholder="<?=$data_tanam['harga']; ?>"><br>
+                            <label for="stok">Stok</label>
+                            <input type="text" name="stok" class="form-control" placeholder="<?=$data_tanam['stok']; ?>"><br>
                             <label for="image">Upload Gambar</label><br>
-                            <input type="file"><br>
+                            <!-- <input type="file"><br> -->
                             <input type="submit" name="submit" id="submit" value="Tambah" class="btn btn-primary mt-3">
                         </form>
                     </div>
@@ -43,3 +53,19 @@
         </footer>
     </body>
 </html>
+
+<?php 
+    if(isset($_POST['submit'])){
+        $nama = $_POST['nama'];
+        $desc = $_POST['deskripsi'];
+        $harga = $_POST['harga'];
+        $stok = $_POST['stok'];
+
+        $update = mysqli_query($mysqli, "UPDATE tanaman SET nama_tanaman = '$nama', deskripsi = '$desc', harga = '$harga', stok = '$stok' WHERE id ='$id'");
+        if($update){
+            header("location:admin.php");
+        }else{
+            echo error_log($result);
+        }
+    }
+?>

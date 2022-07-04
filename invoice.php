@@ -82,9 +82,7 @@
                         <h4>Cara Bayar</h4>
                         <p>Pembayaran dilakukan melalui transaksi ATM, ebanking, atau mbanking ke nomor rekening ini:</p>
                         <h4 class="text-center text-success">146 0802 2922</h4>
-                        <form class="text-center" action="https://wa.me/+6282253502695?text=How%20are%20you" method="get">
-                            <button class="btn btn-primary" type="submit">Kirim Invoice</button>
-                        </form>
+                        <button class="btn btn-primary" type="button"><a href="https://wa.me/+6282253502695?text=How%20are%20you">Kirim Invoice</a></button>
 
                     </div>
                 </div>

@@ -109,7 +109,7 @@
               </div>
                 <div class="row">
                     <div class="col">
-                        <a class="btn btn-primary btn-lg text-center" href="produk.html" role="button">Lihat Selengkapnya</a>
+                        <a class="btn btn-primary btn-lg text-center" href="produk.php" role="button">Lihat Selengkapnya</a>
                     </div>
                 </div>
           </div>
