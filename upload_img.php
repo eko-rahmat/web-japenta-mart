@@ -8,9 +8,9 @@
 </head>
 <body>
     <h1>Upload Gambar</h1>
-    <form action="upload_img.php" method="post">
+    <form action="upload_img.php" method="post" enctype="multipart/form-data">
         <label for="upload">Upload :</label>
-        <input type="file" name="gambar">
+        <input type="file" name="upload">
         <input type="submit" name="submit">
     </form>   
 </body>
@@ -19,11 +19,13 @@
 <?php
 
     // Check if image file is a actual image or fake image
-    if(isset($_POST["submit"])) {
-        $target = 'img/';
-        $_FILES['gambar']['name'] = 'sayang';
-
-        if(move_uploaded_file($_FILES['gambar']['name'], $target)){
+    if(isset($_POST['submit'])) {
+        $gambar = $_FILES['upload']['name'];
+        $x = explode('.',$gambar);
+        $ekstensi = strtolower(end($x));
+        $gambar_baru = "sayang.$ekstensi";
+        $tmp = $_FILES['upload']['tmp_name'];
+        if(move_uploaded_file($tmp, 'img/'.$gambar_baru)){
             echo "Sukses";
         }else{
             echo "Gagal";

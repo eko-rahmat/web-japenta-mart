@@ -1,3 +1,10 @@
+<?php 
+    require 'connect.php';
+    $id = $_GET['id'];
+    $result = mysqli_query($mysqli,"SELECT * FROM tanaman WHERE id ='$id'");
+    $data = mysqli_fetch_array($result);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -53,8 +60,8 @@
                     <div class="col">
                         <h4 class="text-center pb-3">Mangga Arumanis</h4>
                         <div class="total pt-2">
-                            <p>Jumlah : 1</p>
-                            <p>Total harga : Rp 150.000,-</p>
+                            <p>Jumlah : <?=$jumlah ?> pohon</p>
+                            <p>Total harga : Rp <?=$jumlah ?>,-</p>
                         </div>
                         <hr>
                         <form action="invoice.html" method="get">

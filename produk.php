@@ -48,62 +48,26 @@
                 </div>
                 <div class="row g-2">
                     <!-- Looping Content -->
-                    <div class="col-sm-4 mb-3">
-                        <a href="detail.php" style="text-decoration: none;">
-                            <div class="card">
-                                <img src="img/plant1.jpg" class="card-img-top" alt="plant1">
-                                <div class="card-body">
-                                <p class="card-text text-dark">Mangga Arumanis</p>
-                                <p class="card-text text-secondary">Rp 150.000,-</p>
+                    <?php 
+                        require 'connect.php';
+                        $result = mysqli_query($mysqli, "SELECT * FROM tanaman");
+                        while($row = mysqli_fetch_array($result)){
+                            ?>
+                                <div class="col-sm-4 mb-3">
+                                    <a href="detail.php?id=<?=$row['id']; ?>" style="text-decoration: none;">
+                                        <div class="card">
+                                            <img src="img/<?=$row['gambar']; ?>" class="card-img-top" alt="<?=$row['gambar']; ?>">
+                                            <div class="card-body">
+                                            <p class="card-text text-dark"><?=$row['nama_tanaman']; ?></p>
+                                            <p class="card-text text-secondary">Rp <?=$row['harga']; ?>,-</p>
+                                            </div>
+                                        </div>
+                                    </a>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-sm-4 mb-3">
-                        <div class="card">
-                            <img src="img/plant1.jpg" class="card-img-top" alt="plant1">
-                            <div class="card-body">
-                            <p class="card-text">Mangga Arumanis</p>
-                            <p class="card-text text-secondary">Rp 150.000,-</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4 mb-3">
-                        <div class="card">
-                            <img src="img/plant1.jpg" class="card-img-top" alt="plant1">
-                            <div class="card-body">
-                            <p class="card-text">Mangga Arumanis</p>
-                            <p class="card-text text-secondary">Rp 150.000,-</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4 mb-3">
-                        <div class="card">
-                            <img src="img/plant1.jpg" class="card-img-top" alt="plant1">
-                            <div class="card-body">
-                            <p class="card-text">Mangga Arumanis</p>
-                            <p class="card-text text-secondary">Rp 150.000,-</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4 mb-3">
-                        <div class="card">
-                            <img src="img/plant1.jpg" class="card-img-top" alt="plant1">
-                            <div class="card-body">
-                            <p class="card-text">Mangga Arumanis</p>
-                            <p class="card-text text-secondary">Rp 150.000,-</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4 mb-3">
-                        <div class="card">
-                            <img src="img/plant1.jpg" class="card-img-top" alt="plant1">
-                            <div class="card-body">
-                            <p class="card-text">Mangga Arumanis</p>
-                            <p class="card-text text-secondary">Rp 150.000,-</p>
-                            </div>
-                        </div>
-                    </div>
+                            <?php
+                        }
+                        
+                    ?>
                 </div>
             </div>
         </section>

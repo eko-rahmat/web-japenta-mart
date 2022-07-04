@@ -54,12 +54,12 @@
                                 ?>
                                     <tr>
                                         <td><?=$num; ?></td>
-                                        <td><?="Gambar"; ?></td>
+                                        <td><img src='img/<?=$data_tanam['gambar']; ?>' width="100px"></td>
                                         <td><?=$data_tanam['nama_tanaman']; ?></td>
                                         <td><?=$data_tanam['deskripsi']; ?></td>
                                         <td><?=$data_tanam['harga']; ?></td>
                                         <td><?=$data_tanam['stok']; ?></td>
-                                        <td><a href="update.php?id=<?=$data_tanam['id']; ?>">Update</a><a href="hapus.php?id=<?=$data_tanam['id']; ?>">Hapus</a></td>
+                                        <td><a href="hapus.php?id=<?=$data_tanam['id']; ?>">Hapus</a></td>
                                     </tr>
                                 <?php
                                 $num++;
