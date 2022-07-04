@@ -58,54 +58,31 @@
                   </div>
               </div>
               <div class="row g-2">
-                  <div class="col-sm-4 mb-3">
-                    <div class="card">
-                        <img src="img/plant1.jpg" class="card-img-top" alt="plant1">
-                        <div class="card-body">
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-4 mb-3">
-                    <div class="card">
-                        <img src="img/plant1.jpg" class="card-img-top" alt="plant1">
-                        <div class="card-body">
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-4 mb-3">
-                    <div class="card">
-                        <img src="img/plant1.jpg" class="card-img-top" alt="plant1">
-                        <div class="card-body">
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-4 mb-3">
-                    <div class="card">
-                        <img src="img/plant1.jpg" class="card-img-top" alt="plant1">
-                        <div class="card-body">
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-4 mb-3">
-                    <div class="card">
-                        <img src="img/plant1.jpg" class="card-img-top" alt="plant1">
-                        <div class="card-body">
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-4 mb-3">
-                    <div class="card">
-                        <img src="img/plant1.jpg" class="card-img-top" alt="plant1">
-                        <div class="card-body">
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                  </div>
+                <?php 
+                  require 'connect.php';
+                  $result = mysqli_query($mysqli, "SELECT * FROM tanaman");
+                  $num_show = 0;
+                  while($row = mysqli_fetch_array($result)){
+                    ?>
+                      <div class="col-sm-4 mb-3">
+                        <a href="detail.php?id=<?=$row['id'];?>" style="text-decoration:none; color:black;">
+                          <div class="card">
+                              <img src="img/<?=$row['gambar'];?>" class="card-img-top" alt="<?=$row['gambar'];?>">
+                              <div class="card-body">
+                                <p class="card-text"><?=$row['nama_tanaman']; ?></p>
+                                <p class="card-text text-secondary">Rp <?=$row['harga'];?>,-</p>
+                              </div>
+                          </div>
+                        </a>
+                      </div>
+                    <?php
+                    if($num_show>6){
+                      break;
+                    }
+                    $num_show++;
+                  }
+                ?>
+                  
               </div>
                 <div class="row">
                     <div class="col">

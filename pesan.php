@@ -50,28 +50,30 @@
             <div class="container w-75 p-3 mt-5 mb-5" style="background-color: white;">
                 <div class="row text-center pt-3 pb-3">
                     <div class="col">
-                        <h2>Detail</h2>
+                        <h2>Pesan</h2>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-5">
-                        <img src="img/plant1.jpg" alt="plant1" class="img-fluid">
+                        <img src="img/<?=$data['gambar']; ?>" alt="plant1" class="img-fluid">
                     </div>
                     <div class="col">
-                        <h4 class="text-center pb-3">Mangga Arumanis</h4>
+                        <h4 class="text-center pb-3"><?=$data['nama_tanaman']; ?></h4>
+                        <!-- FORM -->
+                        <form action="invoice.php" method="post">
                         <div class="total pt-2">
-                            <p>Jumlah : <?=$jumlah ?> pohon</p>
-                            <p>Total harga : Rp <?=$jumlah ?>,-</p>
+                            <p>Jumlah : <input type="number" min=1 name="jumlah" width="100px" class="form-control">pohon</p>
+                            <p>Harga : Rp <?=$data['harga']; ?>,-</p>
                         </div>
                         <hr>
-                        <form action="invoice.html" method="get">
+                            <input type="hidden" name="id" value="<?=$data['id']; ?>">
                             <label for="nama" class="form-label">Nama</label>
                             <input type="text" name="nama" class="mt-2 mb-2 form-control">
                             <label for="nomor" class="form-label">Nomor Telepon</label>
                             <input type="text" name="telpon" class="mt-2 mb-2 form-control">
                             <label for="alamat" class="form-label">Alamat</label>
                             <textarea class="form-control mb-3" name="alamat" id="text-alamat" rows="3"></textarea>
-                            <button type="submit" value="submit" class="btn btn-primary">Pesan</button>
+                            <input type="submit" name="submit" value="Pesan" class="btn btn-primary">
                         </form>
                     </div>
                 </div>
@@ -82,33 +84,30 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-4 mb-3">
-                        <div class="card">
-                            <img src="img/plant1.jpg" class="card-img-top" alt="plant1">
-                            <div class="card-body">
-                            <p class="card-text">Mangga Arumanis</p>
-                            <p class="card-text text-secondary">Rp 150.000,-</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-4 mb-3">
-                        <div class="card">
-                            <img src="img/plant1.jpg" class="card-img-top" alt="plant1">
-                            <div class="card-body">
-                            <p class="card-text">Mangga Arumanis</p>
-                            <p class="card-text text-secondary">Rp 150.000,-</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-4 mb-3">
-                        <div class="card">
-                            <img src="img/plant1.jpg" class="card-img-top" alt="plant1">
-                            <div class="card-body">
-                            <p class="card-text">Mangga Arumanis</p>
-                            <p class="card-text text-secondary">Rp 150.000,-</p>
-                            </div>
-                        </div>
-                    </div>
+                <?php 
+                        $rekom = mysqli_query($mysqli, "SELECT * FROM tanaman");
+                        $num_rekom = 0;
+                        while($row = mysqli_fetch_array($rekom)){
+                            ?>
+                                <div class="col-4 mb-3">
+                                    <a href="detail.php?id=<?=$row['id']; ?>" style="text-decoration: none; color:black;">
+                                        <div class="card">
+                                            <img src="img/<?=$row['gambar']; ?>" class="card-img-top" alt="plant1">
+                                            <div class="card-body">
+                                                <p class="card-text"><?=$row['nama_tanaman']; ?></p>
+                                                <p class="card-text text-secondary">Rp <?=$row['harga'];?>,-</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            <?php
+                            if($num_rekom>3){
+                                break;
+                            }
+                            $num_rekom++;
+                        }
+
+                    ?>
                 </div>
             </div>
         </section>

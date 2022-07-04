@@ -1,3 +1,17 @@
+<?php
+    require 'connect.php';
+    if(isset($_POST['submit'])){
+        $nama = $_POST['nama'];
+        $telpon = $_POST['telpon'];
+        $alamat = $_POST['alamat'];
+        $jumlah = $_POST['jumlah'];
+        $id = $_POST['id'];
+    }
+    
+    $result = mysqli_query($mysqli,"SELECT * FROM tanaman WHERE id='$id'");
+    $data = mysqli_fetch_array($result);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -48,42 +62,42 @@
                 </div>
                 <div class="row">
                     <div class="col-md-5">
-                        <img src="img/plant1.jpg" alt="plant1" class="img-fluid">
+                        <img src="img/<?=$data['gambar'];?>" alt="plant1" class="img-fluid">
                     </div>
                     <div class="col">
                         <hr>
                         <table class="border borderless">
                             <tr>
                                 <td>Nama</td>
-                                <td>Eko</td>
+                                <td><?=$nama; ?></td>
                             </tr>
                             <tr>
                                 <td>Nomor Telepon</td>
-                                <td>08xxxxxxxx</td>
+                                <td><?=$telpon; ?></td>
                             </tr>
                             <tr>
                                 <td>Alamat</td>
-                                <td>Samarinda</td>
+                                <td><?=$alamat; ?></td>
                             </tr>
                             <tr>
                                 <td>Pesanan</td>
-                                <td>Mangga Arumanis</td>
+                                <td><?=$data['nama_tanaman']; ?></td>
                             </tr>
                             <tr>
                                 <td>Jumlah Pesanan</td>
-                                <td>1 Pohon</td>
+                                <td><?=$jumlah; ?> Pohon</td>
                             </tr>
                             <tr>
                                 <td>Total Harga</td>
-                                <td>Rp 150.000,-</td>
+                                <td>Rp <?=$data['harga']*$jumlah; ?>,-</td>
                             </tr>
                         </table>
                         <hr>
                         <h4>Cara Bayar</h4>
                         <p>Pembayaran dilakukan melalui transaksi ATM, ebanking, atau mbanking ke nomor rekening ini:</p>
                         <h4 class="text-center text-success">146 0802 2922</h4>
-                        <button class="btn btn-primary" type="button"><a href="https://wa.me/+6282253502695?text=How%20are%20you">Kirim Invoice</a></button>
-
+                        <p>Setelah transaksi, silahkan kirim invoice ke Whatsapp kami melalui tombol dibawah:</p>
+                        <a href="https://wa.me/+6282253502695?text=Japenta-Mart%20Pesanan%0aNama%3a%20<?=$nama;?>%0aNoTelpon%3a%20<?=$telpon;?>%0aAlamat%3a%20<?=$alamat;?>%0aPesanan%3a%20<?=$data['nama_tanaman'];?>%0aJumlah%3a%20<?=$jumlah;?>%0aTotal%3a%20Rp%20<?=$data['harga']*$jumlah;?>%2c-"><button class="btn btn-primary" type="button">Kirim Nota</button></a>
                     </div>
                 </div>
             </div>
