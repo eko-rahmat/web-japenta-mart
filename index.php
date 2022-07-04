@@ -44,9 +44,8 @@
       <!-- Jumbotron -->
       <section class="jumbotron text-center" style="background-image: url(img/thumbnail.jpeg); color: white;">
         <h1 class="display-4">Selamat Datang</h1>
-        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-        <a class="btn btn-primary btn-lg" href="produk.html" role="button">Belanja Sekarang</a>
+        <p class="lead">Deskripsi websitnya seperti apa</p>
+        <a class="btn btn-primary btn-lg" href="produk.php" role="button">Beli Sekarang</a>
       </section>
 
       <!-- Product -->
@@ -54,7 +53,7 @@
           <div class="container">
               <div class="row text-center pt-5 pb-3">
                   <div class="col">
-                      <h2>Our Products</h2>
+                      <h2>Tanaman</h2>
                   </div>
               </div>
               <div class="row g-2">
@@ -100,10 +99,10 @@
               </div>
           </div>
           <div class="row p-5">
-              <div class="col">
-                  <img class="img-thumbnail w-75" src="img/plant1.jpg" alt="plant1">
+              <div class="col-sm">
+                  <img class="img-thumbnail w-75" src="img/plant2.jpg" alt="plant1">
               </div>
-              <div class="col align-center">
+              <div class="col-sm align-center">
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dicta, possimus voluptates error molestias dolore? Doloribus expedita debitis eum dolorem nisi optio rem temporibus, cupiditate, vero illo quisquam nemo asperiores.</p>
               </div>
           </div>
@@ -144,17 +143,17 @@
               </div>
               <div class="col">
                 <ul class="foot-bar">
-                    <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  <li class="nav-item">
+                      <a class="nav-link" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">Features</a>
+                      <a class="nav-link" href="#produk">Tanaman</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">Pricing</a>
+                      <a class="nav-link" href="#tentang">Tentang Kami</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">Disabled</a>
+                      <a class="nav-link" href="#kontak">Kontak</a>
                     </li>
                   </ul>
               </div>

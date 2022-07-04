@@ -10,6 +10,16 @@
     
     $result = mysqli_query($mysqli,"SELECT * FROM tanaman WHERE id='$id'");
     $data = mysqli_fetch_array($result);
+    
+    $tanggal = date('d-m-Y');
+    $pesanan = $data['nama_tanaman'];
+    $total = $data['harga']*$jumlah;
+    $proses = "belum diproses";
+    
+    $pesan = mysqli_query($mysqli,"INSERT INTO pemesanan (tanggal,nama,no_telpon,alamat,pesanan,jumlah,total,proses) VALUES ('$tanggal','$nama','$telpon','$alamat','$pesanan', '$jumlah', '$total','$proses')");
+    if($pesan == false){
+        echo "Error Guys";
+    }
 ?>
 
 <!DOCTYPE html>
@@ -35,18 +45,18 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Disabled</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="index.php">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php#produk">Tanaman</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php#tentang">Tentang Kami</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php#kontak">Kontak</a>
+                        </li>
                     </ul>
                 </div>
                 </div>
@@ -81,7 +91,7 @@
                             </tr>
                             <tr>
                                 <td>Pesanan</td>
-                                <td><?=$data['nama_tanaman']; ?></td>
+                                <td><?=$pesanan; ?></td>
                             </tr>
                             <tr>
                                 <td>Jumlah Pesanan</td>
@@ -89,14 +99,14 @@
                             </tr>
                             <tr>
                                 <td>Total Harga</td>
-                                <td>Rp <?=$data['harga']*$jumlah; ?>,-</td>
+                                <td>Rp <?=$total; ?>,-</td>
                             </tr>
                         </table>
                         <hr>
                         <h4>Cara Bayar</h4>
                         <p>Pembayaran dilakukan melalui transaksi ATM, ebanking, atau mbanking ke nomor rekening ini:</p>
                         <h4 class="text-center text-success">146 0802 2922</h4>
-                        <p>Setelah transaksi, silahkan kirim invoice ke Whatsapp kami melalui tombol dibawah:</p>
+                        <p>Setelah transaksi, silahkan Centang telah bayar dan kirim bukti pembayaran ke Whatsapp kami melalui tombol dibawah:</p>
                         <a href="https://wa.me/+6282253502695?text=Japenta-Mart%20Pesanan%0aNama%3a%20<?=$nama;?>%0aNoTelpon%3a%20<?=$telpon;?>%0aAlamat%3a%20<?=$alamat;?>%0aPesanan%3a%20<?=$data['nama_tanaman'];?>%0aJumlah%3a%20<?=$jumlah;?>%0aTotal%3a%20Rp%20<?=$data['harga']*$jumlah;?>%2c-"><button class="btn btn-primary" type="button">Kirim Nota</button></a>
                     </div>
                 </div>
@@ -112,16 +122,16 @@
                 <div class="col">
                 <ul class="foot-bar">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
+                        <a class="nav-link" href="index.php#produk">Tanaman</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
+                        <a class="nav-link" href="index.php#tentang">Tentang Kami</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Disabled</a>
+                        <a class="nav-link" href="index.php#kontak">Kontak</a>
                     </li>
                     </ul>
                 </div>

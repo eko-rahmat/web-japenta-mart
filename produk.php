@@ -21,18 +21,18 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Disabled</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="index.php">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php#produk">Tanaman</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php#tentang">Tentang Kami</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php#kontak">Kontak</a>
+                        </li>
                     </ul>
                 </div>
                 </div>
@@ -81,17 +81,17 @@
                 <div class="col">
                 <ul class="foot-bar">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Disabled</a>
-                    </li>
+                                <a class="nav-link" href="index.php">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.php#produk">Tanaman</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.php#tentang">Tentang Kami</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.php#kontak">Kontak</a>
+                            </li>
                     </ul>
                 </div>
             </div>

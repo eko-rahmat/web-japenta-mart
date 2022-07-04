@@ -1,4 +1,9 @@
 <?php 
+    session_start();
+    if(!isset($_SESSION['login'])){
+        header("Location : login.php");
+        exit;
+    }
     require 'connect.php';
     $tanaman = mysqli_query($mysqli,"SELECT * FROM tanaman");
     $pemesanan = mysqli_query($mysqli,"SELECT * FROM pemesanan");
@@ -18,7 +23,8 @@
     <header>
         <nav class="navbar bg-light">
             <div class="container">
-              <a class="navbar-brand" href="#">Japenta-Mart</a>
+              <a class="navbar-brand" href="index.php">Japenta-Mart</a>
+              <a style="text-decoration:none; color:black;" class="navbar" href="logout.php">Log Out</a>
             </div>
         </nav>
     </header>
@@ -59,7 +65,7 @@
                                         <td><?=$data_tanam['deskripsi']; ?></td>
                                         <td><?=$data_tanam['harga']; ?></td>
                                         <td><?=$data_tanam['stok']; ?></td>
-                                        <td><a href="hapus.php?id=<?=$data_tanam['id']; ?>">Hapus</a></td>
+                                        <td><a style="text-decoration: none; color:red;" href="hapus.php?id=<?=$data_tanam['id']; ?>">Hapus</a></td>
                                     </tr>
                                 <?php
                                 $num++;
@@ -91,6 +97,7 @@
                             <td>Pesanan</td>
                             <td>Jumlah Pesanan</td>
                             <td>Total Harga</td>
+                            <td>Status</td>
                             <td>Action</td>
                         </tr>
                         <?php 
@@ -106,7 +113,8 @@
                                         <td><?=$data_pesan['pesanan']; ?></td>
                                         <td><?=$data_pesan['jumlah']; ?></td>
                                         <td><?=$data_pesan['total']; ?></td>
-                                        <td><a href="update.php">Proses</a></td>
+                                        <td><a style="text-decoration: none; color:green;" href="update_pesanan.php?id=<?=$data_pesan['id_pesan'];?>"><?=$data_pesan['proses']; ?></a></td>
+                                        <td><a style="text-decoration: none; color:red;" href="hapus_pesanan.php?id=<?=$data_pesan['id_pesan'];?>">Hapus</a></td>
                                     </tr>
                                 <?php
                                 $num++;
