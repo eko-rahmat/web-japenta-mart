@@ -14,10 +14,12 @@
     $tanggal = date('d-m-Y');
     $pesanan = $data['nama_tanaman'];
     $total = $data['harga']*$jumlah;
+    $kurang = $data['stok']-$jumlah;
     $proses = "belum diproses";
     
     $pesan = mysqli_query($mysqli,"INSERT INTO pemesanan (tanggal,nama,no_telpon,alamat,pesanan,jumlah,total,proses) VALUES ('$tanggal','$nama','$telpon','$alamat','$pesanan', '$jumlah', '$total','$proses')");
-    if($pesan == false){
+    $sisa_stok= mysqli_query($mysqli, "UPDATE tanaman SET stok='$kurang' WHERE id='$id'");
+    if($pesan == false && $sisa_stok == false){
         echo "Error Guys";
     }
 ?>

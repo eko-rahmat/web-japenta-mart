@@ -42,10 +42,10 @@
     </header>
 
       <!-- Jumbotron -->
-      <section class="jumbotron text-center" style="background-image: url(img/thumbnail.jpeg); color: white;">
+      <section class="jumbotron text-center" style="background-image: url(img/thumbnail.jpeg); color: white; background-color:black; filter:grayscale(40%);">
         <h1 class="display-4">Selamat Datang</h1>
         <p class="lead">Deskripsi websitnya seperti apa</p>
-        <a class="btn btn-primary btn-lg" href="produk.php" role="button">Beli Sekarang</a>
+        <a class="btn btn-lg" href="produk.php" role="button" style="background-color: #799E6C; color:white;">Beli Sekarang</a>
       </section>
 
       <!-- Product -->
@@ -66,7 +66,7 @@
                       <div class="col-sm-4 mb-3">
                         <a href="detail.php?id=<?=$row['id'];?>" style="text-decoration:none; color:black;">
                           <div class="card">
-                              <img src="img/<?=$row['gambar'];?>" class="card-img-top" alt="<?=$row['gambar'];?>">
+                              <img src="img/<?=$row['gambar'];?>" class="card-img-top" style="filter: grayscale(40%);" alt="<?=$row['gambar'];?>">
                               <div class="card-body">
                                 <p class="card-text"><?=$row['nama_tanaman']; ?></p>
                                 <p class="card-text text-secondary">Rp <?=$row['harga'];?>,-</p>
@@ -85,7 +85,7 @@
               </div>
                 <div class="row">
                     <div class="col">
-                        <a class="btn btn-primary btn-lg text-center" href="produk.php" role="button">Lihat Selengkapnya</a>
+                        <a class="btn btn-lg text-center" href="produk.php" role="button" style="background-color: #799E6C; color:white;">Lihat Selengkapnya</a>
                     </div>
                 </div>
           </div>
@@ -100,7 +100,7 @@
           </div>
           <div class="row p-5">
               <div class="col-sm">
-                  <img class="img-thumbnail w-75" src="img/plant2.jpg" alt="plant1">
+                  <img class="img-thumbnail w-75" src="img/thumbnail.jpeg" alt="thumbnail">
               </div>
               <div class="col-sm align-center">
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dicta, possimus voluptates error molestias dolore? Doloribus expedita debitis eum dolorem nisi optio rem temporibus, cupiditate, vero illo quisquam nemo asperiores.</p>

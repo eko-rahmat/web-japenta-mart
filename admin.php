@@ -21,15 +21,30 @@
 </head>
 <body>
     <header>
-        <nav class="navbar bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark shadow">
             <div class="container">
-              <a class="navbar-brand" href="index.php">Japenta-Mart</a>
-              <a style="text-decoration:none; color:black;" class="navbar" href="logout.php">Log Out</a>
+              <a class="navbar-brand" href="#">Japenta-Mart</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#tanaman">Tanaman</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#pesanan">Pesanan</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="logout.php">Log Out</a>
+                  </li>
+                </ul>
+              </div>
             </div>
-        </nav>
+          </nav>
     </header>
     
-    <section>
+    <section id="#tanaman">
         <div class="container w-75 p-3 mt-5 mb-5" style="background-color: white;">
             <div class="row">
                 <div class="col text-center">
@@ -77,7 +92,7 @@
         </div>
     </section>
 
-    <section>
+    <section id="#pesanan">
         <div class="container w-75 p-3 mt-5 mb-5" style="background-color: white;">
             <div class="row">
                 <div class="col text-center">
@@ -129,5 +144,6 @@
     <footer>
         <p class="text-center">@Copyright by Japenta - 2022</p>
     </footer>
+    <script src="js/bootstrap.js"></script>
 </body>
 </html>
