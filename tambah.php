@@ -27,10 +27,18 @@
                         <input type="text" name="nama" class="form-control"><br>
                         <label for="Deskripsi">Deskripsi</label>
                         <textarea name="deskripsi" id="desc" class="form-control mb-3" rows="3"></textarea><br>
-                        <label for="harga">Harga</label>
-                        <input type="text" name="harga" class="form-control"><br>
-                        <label for="stok">Stok</label>
-                        <input type="text" name="stok" class="form-control"><br>
+                        <label for="harga">Harga Pot Besar</label>
+                        <input type="text" name="potbesar" class="form-control"><br>
+                        <label for="stok">Stok Pot Besar</label>
+                        <input type="text" name="stokbesar" class="form-control"><br>
+                        <label for="harga">Harga Planter Bag</label>
+                        <input type="text" name="planter" class="form-control"><br>
+                        <label for="stok">Stok Planter Bag</label>
+                        <input type="text" name="stokplanter" class="form-control"><br>
+                        <label for="harga">Harga Pot Kecil</label>
+                        <input type="text" name="potkecil" class="form-control"><br>
+                        <label for="stok">Stok Pot Kecil</label>
+                        <input type="text" name="stokkecil" class="form-control"><br>
                         <label for="image">Upload Gambar</label><br>
                         <input type="file" name="gambar"><br>
                         <input type="submit" name="submit" id="submit" value="Tambah" class="btn btn-primary mt-3">
@@ -52,8 +60,12 @@
     if(isset($_POST['submit'])){
         $nama = $_POST['nama'];
         $desc = $_POST['deskripsi'];
-        $harga = $_POST['harga'];
-        $stok = $_POST['stok'];
+        $ptbesar = $_POST['potbesar'];
+        $planter = $_POST['planter'];
+        $ptkecil = $_POST['potkecil'];
+        $stokbesar = $_POST['stokbesar'];
+        $stokplanter = $_POST['stokplanter'];
+        $stokkecil = $_POST['stokkecil'];
         
         $gambar = $_FILES['gambar']['name'];
         $x = explode('.',$gambar);
@@ -62,7 +74,7 @@
         $tmp = $_FILES['gambar']['tmp_name'];
 
         if(move_uploaded_file($tmp, 'img/'.$gambar_baru)){
-            $result = mysqli_query($mysqli,"INSERT INTO tanaman (nama_tanaman,deskripsi,harga,stok,gambar) VALUES ('$nama','$desc','$harga','$stok','$gambar_baru')");
+            $result = mysqli_query($mysqli,"INSERT INTO tanaman (nama_tanaman,deskripsi,pot_besar,planter_bag,pot_kecil,stok_besar,stok_planter,stok_kecil,gambar) VALUES ('$nama','$desc','$ptbesar','$planter','$ptkecil','$stokbesar','$stokplanter','$stokkecil','$gambar_baru')");
             if($result){
                 // echo "
                 // <script>

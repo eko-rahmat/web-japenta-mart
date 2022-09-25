@@ -1,6 +1,6 @@
 <?php 
     $databaseHost = 'localhost';
-    $databaseName = 'pajenta_mart';
+    $databaseName = 'japenta_mart';
     $databaseUsername = 'root';
     $databasePassword = '';
     

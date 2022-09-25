@@ -45,7 +45,7 @@
     </header>
     
     <section id="#tanaman">
-        <div class="container w-75 p-3 mt-5 mb-5" style="background-color: white;">
+        <div class="container p-3 mt-5 mb-5" style="background-color: white;">
             <div class="row">
                 <div class="col text-center">
                     <h3>Manage Tanaman</h3>
@@ -64,8 +64,12 @@
                             <td>Gambar</td>
                             <td>Nama</td>
                             <td>Deskripsi</td>
-                            <td>Harga</td>
-                            <td>Stok</td>
+                            <td>Pot Besar</td>
+                            <td>Planter Bag</td>
+                            <td>Pot Kecil</td>
+                            <td>Stok Pot Besar</td>
+                            <td>Stok Pot Planter</td>
+                            <td>Stok Pot Kecil</td>
                             <td>Action</td>
                         </tr>
 
@@ -77,9 +81,13 @@
                                         <td><?=$num; ?></td>
                                         <td><img src='img/<?=$data_tanam['gambar']; ?>' width="100px"></td>
                                         <td><?=$data_tanam['nama_tanaman']; ?></td>
-                                        <td><?=$data_tanam['deskripsi']; ?></td>
-                                        <td><?=$data_tanam['harga']; ?></td>
-                                        <td><?=$data_tanam['stok']; ?></td>
+                                        <td class="w-25"><?=$data_tanam['deskripsi']; ?></td>
+                                        <td><?=$data_tanam['pot_besar']; ?></td>
+                                        <td><?=$data_tanam['planter_bag']; ?></td>
+                                        <td><?=$data_tanam['pot_kecil']; ?></td>
+                                        <td><?=$data_tanam['stok_besar']; ?></td>
+                                        <td><?=$data_tanam['stok_planter']; ?></td>
+                                        <td><?=$data_tanam['stok_kecil']; ?></td>
                                         <td><a style="text-decoration: none; color:red;" href="hapus.php?id=<?=$data_tanam['id']; ?>">Hapus</a></td>
                                     </tr>
                                 <?php
@@ -93,7 +101,7 @@
     </section>
 
     <section id="#pesanan">
-        <div class="container w-75 p-3 mt-5 mb-5" style="background-color: white;">
+        <div class="container p-3 mt-5 mb-5" style="background-color: white;">
             <div class="row">
                 <div class="col text-center">
                     <h3>Manage Pesanan</h3>
@@ -110,6 +118,7 @@
                             <td>Nomor Telepon</td>
                             <td>Alamat</td>
                             <td>Pesanan</td>
+                            <td>Jenis Pot</td>
                             <td>Jumlah Pesanan</td>
                             <td>Total Harga</td>
                             <td>Status</td>
@@ -126,6 +135,7 @@
                                         <td><?=$data_pesan['no_telpon']; ?></td>
                                         <td><?=$data_pesan['alamat']; ?></td>
                                         <td><?=$data_pesan['pesanan']; ?></td>
+                                        <td><?=$data_pesan['pot']; ?></td>
                                         <td><?=$data_pesan['jumlah']; ?></td>
                                         <td><?=$data_pesan['total']; ?></td>
                                         <td><a style="text-decoration: none; color:green;" href="update_pesanan.php?id=<?=$data_pesan['id_pesan'];?>"><?=$data_pesan['proses']; ?></a></td>

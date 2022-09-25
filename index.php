@@ -68,8 +68,7 @@
                           <div class="card">
                               <img src="img/<?=$row['gambar'];?>" class="card-img-top" style="filter: grayscale(40%);" alt="<?=$row['gambar'];?>">
                               <div class="card-body">
-                                <p class="card-text"><?=$row['nama_tanaman']; ?></p>
-                                <p class="card-text text-secondary">Rp <?=$row['harga'];?>,-</p>
+                                <h4 class="card-text"><?=$row['nama_tanaman']; ?></h4>
                               </div>
                           </div>
                         </a>

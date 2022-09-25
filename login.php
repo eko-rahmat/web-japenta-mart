@@ -42,6 +42,8 @@
         $result = mysqli_query($mysqli, "SELECT * FROM login_admin WHERE username = '$username'");
         $hash = md5($password);
 
+        echo $hash;
+
         if(mysqli_num_rows($result) === 1){
             $row = mysqli_fetch_assoc($result);
 

@@ -1,11 +1,12 @@
 <?php
     require 'connect.php';
     if(isset($_POST['submit'])){
-        $nama = $_POST['nama'];
-        $telpon = $_POST['telpon'];
-        $alamat = $_POST['alamat'];
+        $nama = htmlspecialchars($_POST['nama']);
+        $telpon = htmlspecialchars($_POST['telpon']);
+        $alamat = htmlspecialchars($_POST['alamat']);
         $jumlah = $_POST['jumlah'];
-        $id = $_POST['id'];
+        $pot = $_POST['pot'];
+        $id = htmlspecialchars($_POST['id']); 
     }
     
     $result = mysqli_query($mysqli,"SELECT * FROM tanaman WHERE id='$id'");
@@ -13,12 +14,25 @@
     
     $tanggal = date('d-m-Y');
     $pesanan = $data['nama_tanaman'];
-    $total = $data['harga']*$jumlah;
-    $kurang = $data['stok']-$jumlah;
-    $proses = "belum diproses";
-    
-    $pesan = mysqli_query($mysqli,"INSERT INTO pemesanan (tanggal,nama,no_telpon,alamat,pesanan,jumlah,total,proses) VALUES ('$tanggal','$nama','$telpon','$alamat','$pesanan', '$jumlah', '$total','$proses')");
-    $sisa_stok= mysqli_query($mysqli, "UPDATE tanaman SET stok='$kurang' WHERE id='$id'");
+    if($pot == 'pot_besar'){
+        $total = $data['pot_besar']*$jumlah;
+        $kurang = $data['stok_besar']-$jumlah;
+        $sisa_stok= mysqli_query($mysqli, "UPDATE tanaman SET stok_besar='$kurang' WHERE id='$id'");
+        $proses = "belum diproses";
+        $pesan = mysqli_query($mysqli,"INSERT INTO pemesanan (tanggal,nama,no_telpon,alamat,pesanan,pot,jumlah,total,proses) VALUES ('$tanggal','$nama','$telpon','$alamat','$pesanan','$pot', '$jumlah', '$total','$proses')");    
+    }elseif($pot == 'planter_bag'){
+        $total = $data['planter_bag']*$jumlah;
+        $kurang = $data['stok_planter']-$jumlah;
+        $sisa_stok= mysqli_query($mysqli, "UPDATE tanaman SET stok_planter='$kurang' WHERE id='$id'");
+        $proses = "belum diproses";
+        $pesan = mysqli_query($mysqli,"INSERT INTO pemesanan (tanggal,nama,no_telpon,alamat,pesanan,pot,jumlah,total,proses) VALUES ('$tanggal','$nama','$telpon','$alamat','$pesanan','$pot', '$jumlah', '$total','$proses')");
+    }elseif ($pot == 'pot_kecil') {
+        $total = $data['pot_kecil']*$jumlah;
+        $kurang = $data['stok_kecil']-$jumlah;
+        $sisa_stok= mysqli_query($mysqli, "UPDATE tanaman SET stok_kecil='$kurang' WHERE id='$id'");
+        $proses = "belum diproses";
+        $pesan = mysqli_query($mysqli,"INSERT INTO pemesanan (tanggal,nama,no_telpon,alamat,pesanan,pot,jumlah,total,proses) VALUES ('$tanggal','$nama','$telpon','$alamat','$pesanan','$pot', '$jumlah', '$total','$proses')");
+    }
     if($pesan == false && $sisa_stok == false){
         echo "Error Guys";
     }
@@ -80,6 +94,10 @@
                         <hr>
                         <table class="border borderless">
                             <tr>
+                                <td>Tanggal</td>
+                                <td><?=$tanggal;?></td>
+                            </tr>
+                            <tr>
                                 <td>Nama</td>
                                 <td><?=$nama; ?></td>
                             </tr>
@@ -96,6 +114,10 @@
                                 <td><?=$pesanan; ?></td>
                             </tr>
                             <tr>
+                                <td>Jenis Pot</td>
+                                <td><?=$pot;?></td>
+                            </tr>
+                            <tr>
                                 <td>Jumlah Pesanan</td>
                                 <td><?=$jumlah; ?> Pohon</td>
                             </tr>
@@ -109,7 +131,8 @@
                         <p>Pembayaran dilakukan melalui transaksi ATM, ebanking, atau mbanking ke nomor rekening ini:</p>
                         <h4 class="text-center text-success">146 0802 2922</h4>
                         <p>Setelah transaksi, silahkan Centang telah bayar dan kirim bukti pembayaran ke Whatsapp kami melalui tombol dibawah:</p>
-                        <a href="https://wa.me/+6282253502695?text=Japenta-Mart%20Pesanan%0aNama%3a%20<?=$nama;?>%0aNoTelpon%3a%20<?=$telpon;?>%0aAlamat%3a%20<?=$alamat;?>%0aPesanan%3a%20<?=$data['nama_tanaman'];?>%0aJumlah%3a%20<?=$jumlah;?>%0aTotal%3a%20Rp%20<?=$data['harga']*$jumlah;?>%2c-"><button class="btn btn-primary" type="button">Kirim Nota</button></a>
+                        <a href="https://wa.me/+6282253502695?text=Japenta-Mart%20Pesanan%0aNama%3a%20<?=$nama;?>%0aNoTelpon%3a%20<?=$telpon;?>%0aAlamat%3a%20<?=$alamat;?>%0aPesanan%3a%20<?=$data['nama_tanaman'];?>%0apot%3a%20<?=$pot?>%0aJumlah%3a%20<?=$jumlah;?>%0aTotal%3a%20Rp%20<?=$total;?>%2c-"><button class="btn btn-primary" type="button">Kirim Nota</button></a>
+                        <p>Atau bisa kirim Bukti Pembayaran ke nomor ini <a href="https://wa.me/+6282253502695">0822 5350 2695</a></p>
                     </div>
                 </div>
             </div>

@@ -59,12 +59,39 @@
                     </div>
                     <div class="col">
                         <h4 class="text-center pb-3"><?=$data['nama_tanaman']; ?></h4>
+                        <table class="table">
+                            <tr>
+                                <th colspan="2" class="text-center"><p>Harga </p></th>
+                                <th><p>Stok</p></th>
+                            </tr>
+                            <tr>
+                                <td>Pot Besar</td>
+                                <td><?=$data['pot_besar']; ?></td>
+                                <td><?=$data['stok_besar']; ?></td>
+                            </tr>
+                            <tr>
+                                <td>Planter Bag</td>
+                                <td><?=$data['planter_bag']; ?></td>
+                                <td><?=$data['stok_planter']; ?></td>
+                            </tr>
+                            <tr>
+                                <td>Pot Kecil</td>
+                                <td><?=$data['pot_kecil']; ?></td>
+                                <td><?=$data['stok_kecil']; ?></td>
+                            </tr>
+                        </table>
                         <!-- FORM -->
                         <form action="invoice.php" method="post">
-                        <div class="total pt-2">
-                            <p>Jumlah : <input type="number" min=1 name="jumlah" width="100px" class="form-control">pohon</p>
-                            <p>Harga : Rp <?=$data['harga']; ?>,-</p>
-                        </div>
+                            <div class="total pt-2">
+                                <p>Jumlah : <input type="number" min=1 name="jumlah" width="100px" class="form-control">pohon</p>
+                                <p>Pot : 
+                                    <select name="pot" id="" class="form-select">
+                                        <option value="pot_besar">Pot Besar</option>
+                                        <option value="planter_bag">Planter Bag</option>
+                                        <option value="pot_kecil">Pot Kecil</option>
+                                    </select>
+                                </p>
+                            </div>
                         <hr>
                             <input type="hidden" name="id" value="<?=$data['id']; ?>">
                             <label for="nama" class="form-label">Nama</label>
@@ -94,8 +121,7 @@
                                         <div class="card">
                                             <img src="img/<?=$row['gambar']; ?>" class="card-img-top" alt="plant1">
                                             <div class="card-body">
-                                                <p class="card-text"><?=$row['nama_tanaman']; ?></p>
-                                                <p class="card-text text-secondary">Rp <?=$row['harga'];?>,-</p>
+                                                <h4 class="card-text"><?=$row['nama_tanaman']; ?></h4>
                                             </div>
                                         </div>
                                     </a>
